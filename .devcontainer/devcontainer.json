@@ -1,10 +1,10 @@
 {
-    "name": "ROS 2 UArm Swift Pro Development Container",
+    "name": "ROS 2 Jazzy Development Container",
     "privileged": true,
     "remoteUser": "${localEnv:USER}",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "swiftpro_ros",
-    "workspaceFolder": "/swiftros_ws",
+    "service": "jazzy_ros",
+    "workspaceFolder": "/jazzy_ws",
     "initializeCommand": "echo -e \"UID=$(id -u)\nGID=$(id -g)\nUSERNAME=$(whoami)\" > .env",
     "customizations": {
         "vscode": {

@@ -28,7 +28,7 @@ RUN apt-get update && \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /swiftros_ws
+WORKDIR /jazzy_ws
 
 # Setup user configuration
 # Create or rename group and user, handle existing UID/GID conflicts
@@ -44,8 +44,8 @@ RUN echo "Configuring group with GID=$HOST_GID for $USERNAME" && \
     chmod 0440 /etc/sudoers.d/$USERNAME && \
     echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /home/$USERNAME/.bashrc && \
     echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> /home/$USERNAME/.bashrc && \
-    echo "Setting ownership of /swiftros_ws to $USERNAME:$HOST_GID" && \
-    chown -R $USERNAME:$HOST_GID /swiftros_ws && \
+    echo "Setting ownership of /jazzy_ws to $USERNAME:$HOST_GID" && \
+    chown -R $USERNAME:$HOST_GID /jazzy_ws && \
     echo "User setup complete: $(id $USERNAME)"
 
 
@@ -81,8 +81,8 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/*
 
 # Install missing ROS 2 dependencies
-COPY . /swiftros_ws/src
-RUN sudo chown -R $USERNAME:$USERNAME /swiftros_ws && \
+COPY . /jazzy_ws/src
+RUN sudo chown -R $USERNAME:$USERNAME /jazzy_ws && \
     sudo apt-get update && \
     rosdep update && \
     rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y && \
@@ -93,4 +93,4 @@ RUN sudo chown -R $USERNAME:$USERNAME /swiftros_ws && \
 # Set the default shell to bash and the workdir to the source directory
 SHELL [ "/bin/bash", "-c" ]
 ENTRYPOINT []
-WORKDIR /swiftros_ws
+WORKDIR /jazzy_ws

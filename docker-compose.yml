@@ -1,5 +1,5 @@
 services:
-  swiftpro_ros:
+  jazzy_ros:
     build:
       context: .
       dockerfile: Dockerfile
@@ -7,14 +7,14 @@ services:
         - HOST_UID=${UID:-1000}
         - HOST_GID=${GID:-1000}
         - USERNAME=${USER:-$(id -un)}
-    container_name: swiftpro_ros
+    container_name: jazzy_ros
     network_mode: "host"
     privileged: true
     command: /bin/bash
     tty: true
     stdin_open: true
     volumes:
-      - ./:/swiftros_ws/src
+      - ./:/jazzy_ws/src
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev:/dev
     environment:

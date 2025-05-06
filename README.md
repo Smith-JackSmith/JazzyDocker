@@ -77,7 +77,7 @@ JazzyDocker/
 4. **Access the Container**:
    - Attach to the running container:
      ```bash
-     docker exec -it swiftpro_ros bash
+     docker exec -it jazzy_ros bash
      ```
    - Verify the user and ROS 2 setup:
      ```bash
@@ -88,8 +88,8 @@ JazzyDocker/
 
 ### Notes
 
-- **Workspace**: The repository mounts the current directory as `/swiftros_ws/src` in the container. Place your ROS 2 packages in the `src/` directory.
-- **Permissions**: The container runs as your host user, ensuring files created in `/swiftros_ws/src` have correct ownership.
+- **Workspace**: The repository mounts the current directory as `/jazzy_ws/src` in the container. Place your ROS 2 packages in the `src/` directory.
+- **Permissions**: The container runs as your host user, ensuring files created in `/jazzy_ws/src` have correct ownership.
 - **Customization**: Add additional ROS 2 packages to the `Dockerfile`’s `apt-get install` section as needed.
 - **Troubleshooting**:
   - If the build fails, clear the Docker cache:
