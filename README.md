@@ -1,6 +1,10 @@
 # ROS 2 Jazzy Development Container
 
-This repository provides a minimal setup for a ROS 2 Jazzy development environment using Docker, compatible with both VS Code Dev Containers and command-line usage. The container runs as your normal host user, ensuring seamless file permissions for the workspace.
+This repository provides relatively minimal setup for a ROS 2 Jazzy development environment using Docker.
+
+The Container addresses the unusual decision to hardcode the default user in the Jazzy base image to UID/GID 1000 (username "ubuntu") This container allows use of your Localmachine user account running as your host user to ensure seamless file permissions in the workspace.
+
+This is intended to be compatible with both VS Code Dev Containers and command-line usage.
 
 ## Prerequisites
 
